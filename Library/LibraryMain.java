@@ -21,7 +21,7 @@ public class LibraryMain {
         ManageItems checkOut = new ManageItems();
         String borrowedTitle = item.title;
         String borrower = item.borrower;
-        checkOut.modifyItem("false", borrowedTitle, borrower);
+        checkOut.modifyItem("false", "test borrower", borrowedTitle);
     }
 
     public static void checkInItem(LibraryItems item, Borrower lastName) {
@@ -44,15 +44,13 @@ public class LibraryMain {
     	
     public static void main(String[] args) {
         LibraryItems testBook = new LibraryItems("Test Title", "Test Author", "Test Genre", "1234567891234");
+        ManageItems addNew = new ManageItems();
+        addNew.addItem("Test Title", "Test Author", "Test Genre", "1234567891234");
         Borrower Connerly = new Borrower("Caitlin Connerly");
+        System.out.println(testBook.isAvailable);
         checkOutItem(testBook, Connerly);
         System.out.println(testBook.isAvailable);
-        //checkInItem(testBook, Connerly);
-        System.out.println(testBook.isAvailable);
         System.out.println(testBook.author);
-        ManageItems addNew = new ManageItems();
-        //addNew.addItem("new test", "new author", "new genre", "new isbn");
-        //addNew.deleteItem("new test");
         
     }
     

@@ -55,18 +55,18 @@ public class ManageItems {
 				   		"borrower = ?  " +
 				   		"WHERE title = ?";
 
-		     try (Connection conn = this.connect();
-		    		 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = this.connect();
+		    	PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-		            // set the corresponding param
-		            pstmt.setString(1, availability);
-		            pstmt.setString(2, borrower);
-		            pstmt.setString(3, title);
-		            // execute the delete statement
-		            pstmt.executeUpdate();
+		         // set the corresponding param
+		         pstmt.setString(1, availability);
+		         pstmt.setString(2, borrower);
+		         pstmt.setString(3, title);
+		         // execute the delete statement
+		         pstmt.executeUpdate();
 
-		        } catch (SQLException e) {
-		            System.out.println(e.getMessage());
-		        }
-		    }
+		 } catch (SQLException e) {
+		       System.out.println(e.getMessage());
+		   }
+	}
 }
