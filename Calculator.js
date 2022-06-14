@@ -36,6 +36,9 @@ function quotient(x, y) {
 // Initialize operators as string variables
 let firstOperator = '';
 let secondOperator = '';
+let currentOperation = '';
+let operand1 = '';
+let operand2 = '';
 
 function operate(operator, x, y) {
     //Switch case for operators
@@ -50,6 +53,7 @@ function operate(operator, x, y) {
             return quotient(x, y);
     }
 }
+
 
 /*//Test Cases, comment once validated
 //Test Basic Functions
@@ -102,21 +106,24 @@ function resetScreen() {
 
 //Display result of math operation
 function displayResult() {
-
+    resetScreen();
+    currentDisplay.textContent = operate(currentOperation, operand1, operand2);
 }
 
 //Assigns the input operator to the problem
-function assignOperator() {
-    previousDisplay.textContent = currentDisplay.textContent;
-    //operand1 = previousDisplay.textContent;
-    //FIX ME
-}
-
-function assignOperand() {
+function assignOperator(operator) {
+    operand1 = currentDisplay.textContent;
+    currentOperation = operator;
     resetScreen();
-    //FIX ME
 }
 
+//Assigns the second operand when ready to evaluate
+function assignOperand2() {
+    operand2 = currentDisplay.textContent;
+    displayResult();
+}
+
+//Displays the numbers being entered
 function displaySelection(number) {
     if (currentDisplay.textContent === '0' || needReset) {
         resetScreen();
@@ -128,4 +135,5 @@ function handleKeyboardInput(e) {
     if (e.key === 'Delete') clearScreen();
     if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') assignOperator(e.key);
     if (e.key >= 0 && e.key <= 9) displaySelection(e.key);
+    if (e.key === '=') assignOperand2();
 }

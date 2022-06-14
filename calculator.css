@@ -23,6 +23,7 @@ body {
     grid-row: 2;
     width: 215px;
     background-color: #EDCC8B;
+    border: 2px solid black;
     display: grid;
     grid-template-rows: 40px 185px;
     grid-template-columns: 10px 200px;
