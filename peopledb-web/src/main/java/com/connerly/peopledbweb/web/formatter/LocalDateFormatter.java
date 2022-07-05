@@ -13,7 +13,7 @@ public class LocalDateFormatter implements Formatter<LocalDate> {
 
     @Override
     public LocalDate parse(String text, Locale locale) throws ParseException {
-        return LocalDate.parse(text, DateTimeFormatter.ofPattern("MMMM dd, yyyy"));
+        return LocalDate.parse(text, DateTimeFormatter.ISO_LOCAL_DATE);
     }
 
     @Override
